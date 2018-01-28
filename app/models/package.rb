@@ -6,4 +6,6 @@ class Package < ApplicationRecord
   has_many :maintainers, -> { where('contributions.contribution_type' => 1) },
                      through: :contributions,
                      source: :contributor
+
+  validates :name, presence: true
 end
